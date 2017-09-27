@@ -7,4 +7,6 @@
 组件化的另一个意义就是在开发阶段可以单独运行每个Module，这样可以提高调试运行速度，不需要的Module没有编译，省去编译时间。<br>
 但是网上很多文章都是需要更改配置，这样在开发阶段太复杂了，使用当前插件可以使每个Module在不更改配置的情况下直接运行。<br>
 
-简书地址：
+简书地址：<br>
+[Android组件化架构实现（一）](http://www.jianshu.com/p/8f3c21e1ebcf) <br>
+[Android组件化架构实现（二）](http://www.jianshu.com/p/87c7db1c4c06)
