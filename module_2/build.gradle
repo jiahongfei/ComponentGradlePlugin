@@ -1,0 +1,49 @@
+if(isDevelop.toBoolean()){
+    apply plugin: 'component_gradle_plugin'
+}else{
+    apply plugin: 'com.android.library'
+}
+
+
+android {
+    //    compileSdkVersion 25
+//    buildToolsVersion "25.0.2"
+
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+//        applicationId "com.component.demo"
+//        minSdkVersion 11
+//        targetSdkVersion 25
+//        versionCode 1
+//        versionName "1.0"
+
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.name
+    }
+
+    resourcePrefix "library2_"
+
+    sourceSets {
+        main {
+            if (isDevelop.toBoolean() && isDebug.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java', 'src/main/debug/java']
+                res.srcDirs = ['src/main/res', 'src/main/debug/res']
+            } else {
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile libraries.supportAppCompat
+
+    if(!isDevelop.toBoolean()) {
+        compile project(':sub_2_module_1')
+    }
+}

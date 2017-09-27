@@ -1,0 +1,1 @@
+include ':app', ':module_1', ':module_2', ':sub_2_module_1', ':component_gradle_plugin'

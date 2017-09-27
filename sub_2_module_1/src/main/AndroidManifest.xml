@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.component.demo.liblibrary">
+
+    <application>
+        <activity android:name=".Sub2Module1Activity"></activity>
+    </application>
+
+</manifest>

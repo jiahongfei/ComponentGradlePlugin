@@ -1,0 +1,48 @@
+if(isDevelop.toBoolean()){
+    apply plugin: 'component_gradle_plugin'
+}else{
+    apply plugin: 'com.android.application'
+}
+
+android {
+//    compileSdkVersion 25
+//    buildToolsVersion "25.0.2"
+
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+//        applicationId "com.component.demo"
+//        minSdkVersion 11
+//        targetSdkVersion 25
+//        versionCode 1
+//        versionName "1.0"
+
+        applicationId versions.applicationId
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.name
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //    compile 'com.android.support:appcompat-v7:25.3.1'
+    //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile libraries.supportAppCompat
+    compile libraries.constraintLayout
+    compile libraries.fastJson
+    compile libraries.constraintLayout
+    compile libraries.imageLoader
+
+    if(!isDevelop.toBoolean()) {
+        compile project(':module_1')
+        compile project(':module_2')
+    }
+}
+
